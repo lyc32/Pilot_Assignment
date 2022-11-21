@@ -1,0 +1,59 @@
+.view_form {
+  background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  margin: auto;
+  position: relative;
+  width: 90%;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #555555;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 25px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.input_text{
+  width: 90%;
+  display: block;
+  border: 1px solid #999;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.input_submit 
+{
+  width: 100px;
+  font-size: 16px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #555555;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid #999;
+  background:#EEEEEE;
+}
+
+.formtextarea {
+  width: 85%;
+  resize: none;
+  display: block;
+  overflow:scroll;
+  border-radius: 5px;
+  border: 1px solid #999;
+  height: 25px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}

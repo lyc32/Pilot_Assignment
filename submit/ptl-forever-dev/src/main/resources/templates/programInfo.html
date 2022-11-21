@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::title})">
+</head>
+<body>
+    <div class="main-wrapper ">
+        <div class="course-header page-header" >
+            <video autoplay muted loop id="myVideo" class="background-video" style="z-index: -1">
+                <source src="../images/programVideo.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+                <h1 class="page-title-program">全栈开发项目实践课程</h1>
+                <p class="page-sub-title">手把手带你完成全栈开发项目</p>
+            </div>
+        </div>
+
+        <!-- Information part of the program -->
+        <div class = "InfoContainer">
+            <div class = "infoTitleContainer">
+                <div class="infoTitleInner">
+                    <div class = "infoTitle">
+                        <div class="row">
+                            <div class="col-md-4 titleComponent">
+                                <p>
+                                    <span>课程时长</span>
+                                </p>
+                                <h3>13 周</h3>
+                                <small>每周5节课, 每节课2小时</small>
+                            </div>
+                            <div class="col-md-4 titleComponent">
+                                <p>
+                                    <span>下次开课</span>
+                                </p>
+                                <h3>2020年9月5日 14:00</h3>
+                                <small>第一节为免费试听课</small>
+                            </div>
+                            <div class="col-md-4 titleComponent">
+                                <p>
+                                    <span>建议预修课程</span>
+                                </p>
+                                <h3>无</h3>
+                                <small>适合所有学生</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <session>
+                <div class = "row sessionBody">
+                    <div class = "sessionTitle">
+                        <h2 style="color: white">Information</h2>
+                    </div>
+                    <div>
+                        <p>
+                            During the 3 - 5 month period, 4 real-world projects cover the application of full-stack and big data development, as well as front-end, back-end, cloud and more. It extends beyond the Masters Program in CS.
+                            For students transferring from other majors with weak basis, the course will provide free session to improve your knowledge of programming language.
+                            The course is taught by senior engineer from top-tier tech companies in Silicon Valley. We hope to boost your abilities and skills in a relatively short period, and get you ready for job interviews
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "row sessionBody">
+                    <div class = "sessionTitle">
+                        <h2 style="color: white">Syllabus</h2>
+                    </div>
+
+                    <div class="row sybRow">
+                        <div class="col-md-2 syllabusLeft">
+                            <div>
+                                <div class="syllbusTag">
+                                    SECTION 1
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-10 syllabusRight">
+                            <h2 style="font-size: 20px">
+                                Programming Language Fundamentals (Optional, in parallel with formal course)
+                            </h2>
+                            <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                        </div>
+                    </div>
+
+                    <div class="row sybRow">
+                        <div class="col-md-2 syllabusLeft">
+                            <div>
+                                <div class="syllbusTag">
+                                    SECTION 1
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-10 syllabusRight">
+                            <h2 style="font-size: 20px">
+                                Programming Language Fundamentals (Optional, in parallel with formal course)
+                            </h2>
+                            <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                        </div>
+                    </div>
+
+                    <div class="row sybRow">
+                        <div class="col-md-2 syllabusLeft">
+                            <div>
+                                <div class="syllbusTag">
+                                    SECTION 1
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-10 syllabusRight">
+                            <h2 style="font-size: 20px">
+                                Programming Language Fundamentals (Optional, in parallel with formal course)
+                            </h2>
+                            <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                        </div>
+                    </div>
+                </div>
+            </session>
+        </div>
+
+        <div>
+
+        </div>
+
+
+        <footer th:replace="footer">
+        </footer>
+    </div>
+</body>
+</html>

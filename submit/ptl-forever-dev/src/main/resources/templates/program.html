@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: header(~{::title})">
+</head>
+
+<body>
+
+<div class="main-wrapper ">
+    <section class="page-title program-bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <!--<span class="text-white" th:text="${#messages.msg('pilot.contact.sec1.header')}"></span>-->
+                        <h1 class="text-capitalize mt-4 mb-6 text-lg">Multiple Programs</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section portfolio start -->
+    <section class="section portfolio pb-0" style="background: antiquewhite">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 text-center">
+                    <div class="section-title">
+                        <!--<span class="h6 text-color">Our works</span>-->
+                        <h2 class="mt-3 content-title ">Click to View Each Program</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row portfolio-gallery">
+                <div id="p1" onclick="retrieveProgram(this.id)" class="col-lg-4 col-md-6 mb-5">
+                    <div class="hovereffect">
+                        <img src="images/program/p1.jpg" alt="" class="img-fluid w-100">
+                        <div class="overlay">
+                            <h2>FullTime Internship</h2>
+                            <a class="info">View More at Below</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="p2" onclick="retrieveProgram(this.id)" class="col-lg-4 col-md-6 mb-5">
+                    <div class="hovereffect">
+                        <img src="images/program/p2.jpg" alt="" class="img-fluid w-100">
+                        <div class="overlay">
+                            <h2>Crack Interview</h2>
+                            <a class="info">View More at Below</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="p3" onclick="retrieveProgram(this.id)" class="col-lg-4 col-md-6 mb-5">
+                    <div class="hovereffect">
+                        <img src="images/program/p3.jpg" alt="" class="img-fluid w-100">
+                        <div class="overlay">
+                            <h2>Code Camp</h2>
+                            <a class="info">View More at Below</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="p4" onclick="retrieveProgram(this.id)" class="col-lg-4 col-md-6 mb-5">
+                    <div class="hovereffect">
+                        <img src="images/program/p4.jpg" alt="" class="img-fluid w-100">
+                        <div class="overlay">
+                            <h2>Backend Consultancy</h2>
+                            <a class="info">View More at Below</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="p5" onclick="retrieveProgram(this.id)" class="col-lg-4 col-md-6 mb-5">
+                    <div class="hovereffect">
+                        <img src="images/program/p5.jpg" alt="" class="img-fluid w-100">
+                        <div class="overlay">
+                            <h2>Fullstack Consultancy</h2>
+                            <a class="info">View More at Below</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!---------------------------------details------------------------>
+            <div id="p1-detail" hidden th:insert="program-intern::details-intern"></div>
+            <div id="p2-detail" hidden th:insert="program-crack-interview::details-interview"></div>
+            <div id="p3-detail" hidden th:insert="program-camp::details-camp"></div>
+            <div id="p4-detail" hidden th:insert="program-backend-consultancy::details-backend"></div>
+            <div id="p5-detail" hidden th:insert="program-fullstack-consultancy::details-fullstack"></div>
+
+
+            <br><br><br><br><br><br><br><br>
+
+            <!--<div class="main-wrapper mt-5">
+                <div class="course-header page-header" >
+                    <div class="content">
+                        <h1 class="page-title-program">全栈开发项目实践课程</h1>
+                        <p class="page-sub-title">手把手带你完成全栈开发项目</p>
+                    </div>
+                </div>
+                <div class="container"> &lt;!&ndash;main content section starts&ndash;&gt;
+                    <div class = "row">
+                        <div class = "sessionTitle">
+                            <h2>Overview</h2>
+                        </div>
+                        <div class="pl-3 pr-3">
+                            <p>
+                                During the 3 - 5 month period, 4 real-world projects cover the application of full-stack and big data development, as well as front-end, back-end, cloud and more. It extends beyond the Masters Program in CS.
+                                For students transferring from other majors with weak basis, the course will provide free session to improve your knowledge of programming language.
+                                The course is taught by senior engineer from top-tier tech companies in Silicon Valley. We hope to boost your abilities and skills in a relatively short period, and get you ready for job interviews
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class = "sessionTitle">
+                            <h2>Information</h2>
+                        </div>
+                        <div class="ml-4 mr-4">
+                            <div class="row">
+                                <div class="col-md-3 titleComponent">
+                                    <p>
+                                        <span>Training Length</span>
+                                    </p>
+                                    <h3>8 weeks</h3>
+                                    <small>two hours per session, 5 sessions per week</small>
+                                </div>
+                                <div class="col-md-3 titleComponent">
+                                    <p>
+                                        <span>Prerequisite</span>
+                                    </p>
+                                    <h3>Not Required</h3>
+                                    <small>Strongly suggest to have basic java knowledge</small>
+                                </div>
+                                <div class="col-md-3 titleComponent">
+                                    <p>
+                                        <span>Trainer</span>
+                                    </p>
+                                    <h3>One trainer, multiple TA</h3>
+                                    <small>Our trainer has many years of working and training experience</small>
+                                </div>
+                                <div class="col-md-3 titleComponent">
+                                    <p>
+                                        <span>Package</span>
+                                    </p>
+                                    <h3>All in One</h3>
+                                    <small>Program covers training, marketing and boarding with no worries</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class = "sessionTitle">
+                            <h2>Syllabus</h2>
+                        </div>
+                        <div class="row sybRow">
+                            <div class="col-md-2 syllabusLeft">
+                                <div>
+                                    <div class="syllbusTag">
+                                        SECTION 1
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 syllabusRight">
+                                <h2 style="font-size: 20px">
+                                    i Programming Language Fundamentals (Optional, in parallel with formal course)
+                                </h2>
+                                <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                            </div>
+                        </div>
+
+                        <div class="row sybRow">
+                            <div class="col-md-2 syllabusLeft">
+                                <div>
+                                    <div class="syllbusTag">
+                                        SECTION 2
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 syllabusRight">
+                                <h2 style="font-size: 20px">
+                                    ii Programming Language Fundamentals (Optional, in parallel with formal course)
+                                </h2>
+                                <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class = "sessionTitle">
+                            <h2>Project</h2>
+                        </div>
+                        <div class="row sybRow">
+                            <div class="col-md-2 syllabusLeft">
+                                <div>
+                                    <div class="syllbusTag">
+                                        PROJECT 1
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 syllabusRight">
+                                <h2 style="font-size: 20px">
+                                    i Programming Language Fundamentals (Optional, in parallel with formal course)
+                                </h2>
+                                <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                            </div>
+                        </div>
+
+                        <div class="row sybRow">
+                            <div class="col-md-2 syllabusLeft">
+                                <div>
+                                    <div class="syllbusTag">
+                                        PROJECT 2
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-10 syllabusRight">
+                                <h2 style="font-size: 20px">
+                                    ii Programming Language Fundamentals (Optional, in parallel with formal course)
+                                </h2>
+                                <p>Besides formal course, this section will provide you a intensive training on project-related language, such as Java, Javscript and Scala.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class = "sessionTitle">
+                            <h2>Bonus</h2>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="about-info-item mb-4 mb-lg-0">
+                                    <h3 class="mb-3"><i class="fas fa-medal mr-3 text-color text-md"></i><span>Our Team</span></h3>
+                                    <p>Our professional teams work for all aspects of internship and consultancy business. They have many years of experiences and lots of success models. Contact Us to get more information</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="about-info-item mb-4 mb-lg-0">
+                                    <h3 class="mb-3"><i class="fas fa-medal mr-3 text-color text-md"></i><span>Our Work</span></h3>
+                                    <p>Our work are expanding! It covers full time internships, training for cracking interviews, development of new software products and staffing services for web application engineering</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="about-info-item mb-4 mb-lg-0">
+                                    <h3 class="mb-3"><i class="fas fa-medal mr-3 text-color text-md"></i><span>Our Principle</span></h3>
+                                    <p>We want to make the consultancy environment better. We offer sponsorships and better packages. We put our employees needs as top priorities. No tricks and No hidden terms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> &lt;!&ndash;main content section ends&ndash;&gt;
+
+                <br><br><br><br><br><br><br><br>
+
+
+            </div>-->
+        </div>
+    </section>
+
+    <!-- section portfolio END -->
+
+
+    <footer th:replace="footer">
+    </footer>
+
+</div>
+
+</body>
+</html>

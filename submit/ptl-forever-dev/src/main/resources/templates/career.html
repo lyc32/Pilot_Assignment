@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: header(~{::title})">
+</head>
+
+<body>
+
+<div class="main-wrapper">
+    <section class="page-title career-bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <!--<span class="text-white" th:text="${#messages.msg('pilot.career.sec1.header')}"></span>-->
+                        <h1 class="text-capitalize mt-4 mb-6 text-lg">Our Current Openings</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section blog-wrap bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row" th:each="job:${jobs}">
+
+                        <div class="accordion col-sm-12 p2 mb-4" id="accordion1" th:attr="id=${'accordion' + job.jobId}">
+                            <div class="card">
+                                <div class="card-header bg-white job-card-header"
+                                     data-toggle="collapse" aria-expanded="true"
+                                     th:attr="data-target=${'#jobCollapse'+job.jobId}, aria-controls=${'jobCollapse'+job.jobId}, id=${'jobHeading' + job.jobId}">
+
+                                    <h3 class="mt-3 mb-4" th:text="${job.title}"></h3>
+
+                                    <div class="blog-item-meta bg-gray py-1 px-2 mr-9" style="float:left;">
+                                        <span class="text-muted text-capitalize mr-3"><i class="ti-book mr-2"></i>Job Field: <span th:text="${job.field}"></span></span>
+                                        <span class="text-muted text-capitalize mr-3"><i class="ti-desktop mr-2"></i>Location: <span th:text="${job.location}"></span></span>
+                                        <!--<span class="text-muted text-capitalize mr-3"><i class="ti-time mr-2"></i>Post Date: <span th:text="${job.postStartDate}"></span></span> -->
+                                        <span class="text-muted text-capitalize mr-3"><i class="ti-time mr-1"></i>Status: <span th:text="${job.status}"></span></span>
+                                    </div>
+                                    <div>
+                                    <button class="btn btn-primary btn-xs py-1 px-2 mr-3"
+                                            type="button"
+                                            style="float:right"
+                                            name="apply-by-email" id="apply-by-email"
+                                            th:attr="onclick=|openEmail('general.pilottech@gmail.com','${job.jobId}', '${job.title}')|"
+                                    >Apply By Email</button>
+                                    </div>
+                                </div>
+
+                                <div class="collapse hide" th:attr="id=${'jobCollapse' + job.jobId}, aria-labelledby=${'jobHeading' + job.jobId}, data-parent=${'#accordion' + job.jobId}">
+                                    <div class="card-body p-5 text-sm" >
+                                        <p th:text="${job.description}"></p>
+                                        <div>
+                                            <p><strong>Requirements:</strong></p>
+                                            <ul class="list-unstyled footer-menu lh-35 ml-5"
+                                                style="list-style-type: disc" >
+                                                <li th:each="requirement:${job.requirements}">
+                                                    <span th:text="${requirement}"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <p><strong>Qualifications:</strong></p>
+                                            <p th:text="${job.qualifications}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar-wrap">
+                        <div class="sidebar-widget search card p-5 mb-3 border-0 d-none">
+                            <div>
+                                <select class="custom-select" id="jobsearchid">
+                                    <option value="" selected disabled th:text="${#messages.msg('pilot.career.sec2.right.searchJobs')}"></option>
+                                    <option th:each="job:${jobs}" th:value="${job.jobId}" th:text="${job.jobId + ' - ' + job.title}"></option>
+                                </select>
+                            </div>
+                            <a href="/register"  class="btn btn-mian btn-small d-block mt-2">search job</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer th:replace="footer">
+    </footer>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<head th:replace="admin_menubar :: admin_menubar(~{::menubar})">
+</head>
+<body>
+    <div class="right">
+        <span id="show_Current_Time"></span>
+        <br><br>
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>#ID</th>
+                    <th>title</th>
+                    <th>location</th>
+                    <th>StartDate</th>
+                    <th>EndDate</th>
+                    <th>status</th>
+                    <th>author</th>
+                    <th>operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pure-table" th:each="job:${jobs}">
+                    <td><span th:text="${job.jobId}"></span></td>
+                    <td><span th:text="${job.title}"></span></td>
+                    <td><span th:text="${job.location}"></span></td>
+                    <td><span th:text="${job.postStartDate}"></span></td>
+                    <td><span th:text="${job.postEndDate}"></span></td>
+                    <td><span th:text="${job.status}"></span></td>
+                    <td><span th:text="${job.author}"></span></td>
+                    <td>
+                        <button class="list_button" th:value="${job.jobId}" onclick="edit_Job(this.value)">edit</button>
+                        <button class="list_button" th:value="${job.jobId}" onclick="delete_Job(this.value)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

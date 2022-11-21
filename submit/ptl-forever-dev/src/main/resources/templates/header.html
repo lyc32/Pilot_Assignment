@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="header(title)">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Pilot Technologies LLC</title>
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" >
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="/plugins/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/plugins/magnific-popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="/plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="/plugins/slick-carousel/slick/slick-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/customize.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+</head>
+
+<body>
+
+<header class="navigation">
+    <nav class="navbar navbar-expand-lg py-5" id="navbar">
+        <div class="container">
+            <a href="/index"> <img class="logo-image" src="../images/logo.png" ></a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="#navbars" aria-controls="navbars" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+
+            <div class="collapse navbar-collapse text-center" id="navbars">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown00" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown00">
+                            <li><a class="dropdown-item" href="/program">Program</a></li>
+                            <li><a class="dropdown-item" href="/bzservice">Service</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Milestone</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                            <li><a class="dropdown-item" href="/service">Resources</a></li>
+                            <li><a class="dropdown-item" href="/offerboard">Offer Board</a></li>
+                            <li><a class="dropdown-item" href="/testimony">We're Liked!</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/career">Career</a></li>
+                    <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                            <li><a class="dropdown-item" href="/news">News & Events</a></li>
+                            <li><a class="dropdown-item" href="/activities">Employee Activities</a></li>
+                        </ul>
+                    </li>-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ePortal</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                            <li><a class="dropdown-item" href="/admin">Administrator</a></li>
+                            <li><a class="dropdown-item" href="/admin">Employee</a></li>
+                            <li><a class="dropdown-item" href="/admin">Tech Screening</a></li>
+                            <li><a class="dropdown-item" href="/admin">Mock</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <a href="/index"> <img class="logo-image" src="../images/contact/barcodelucy.png" ></a>
+
+        </div>
+    </nav>
+</header>
+
+</body>
+</html>

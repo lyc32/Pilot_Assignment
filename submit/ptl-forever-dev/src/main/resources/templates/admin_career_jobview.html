@@ -1,0 +1,59 @@
+<!doctype html>
+<head th:replace="admin_menubar :: admin_menubar(~{::menubar})">
+</head>
+<body>
+    <div class="right">
+        <span id="show_Current_Time"></span>
+        <br><br>
+        <div class="view_form">
+          <h1 th:if="${type == 'new'}"><span>Post New Job</span></h1>
+          <h1 th:unless="${type == 'new'}"><span th:text="${job.jobId}"></span></h1>
+          <input th:field="${job.jobId}" type="hidden">
+      <table style="width:85%">
+        <tr>
+          <td style="width:80%">Title:</td>
+          <td style="width:20%">Field:</td>
+        </tr>
+        <tr>
+          <td><input style="width: 95%"  class="input_text" type="text" th:field="${job.title}" required/></td>
+          <td><input style="width: 100%" class="input_text" type="text" th:field="${job.field}" required/></td>
+        </tr>
+      </table>
+      <table style="width:85%">
+        <tr>
+          <td style="width:25%">location:</td>
+          <td style="width:25%">StartDate:</td>
+          <td style="width:25%">EndDate:</td>
+          <td style="width:25%">Status:</td>
+        </tr>
+        <tr>
+          <td><input class="input_text" type="text" th:field="${job.location}" required/></td>
+          <td><input class="input_text" type="date" th:field="${job.postStartDate}"/></td>
+          <td><input class="input_text" type="date" th:field="${job.postEndDate}"/></td>
+          <td>
+            <select class="input_text" th:field="${job.status}">
+              <option value="auto">Auto</option>
+              <option value="open">Open</option>
+              <option value="close">Close</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <table style="width:85%">
+        <tr>
+          <td>Description:
+        </tr>
+        <tr>
+          <td><textarea class="formtextarea" style="width:100%;height:80px;" th:field="${job.description}"></textarea></td>
+        </tr>
+      </table>
+          <br>
+          Qualifications: <textarea class="formtextarea" style="height:80px;" th:field="${job.qualifications}"></textarea><br>
+          Requirements: <textarea class="formtextarea" style="height:200px;" th:field="${job.requirements}"></textarea><br>
+          <input th:if="${type == 'new'}" class="input_submit" type="submit" id="create_Job" onclick="create_Job()" value="submit"/>
+          <input th:unless="${type == 'new'}" class="input_submit" type="submit" id="update_Job" onclick="update_Job()" value="submit"/>
+        </div>
+    </div>
+</body>
+</html>

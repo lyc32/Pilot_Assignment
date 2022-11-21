@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: header(~{::title})">
+</head>
+
+<body>
+
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin">
+                <div class="card-body">
+                    <br>
+                    <h5 class="card-title text-center">Account Registration</h5>
+                    <br>
+                    <form class="form-signin mt-3"
+                          th:object="${registrationDTO}"
+                          th:action="@{/register}"
+                          th:method="POST">
+                        <div class="form-group">
+                            <input type="email" id="email" th:field="${registrationDTO.email}" class="form-control rounded-lg" placeholder="Please enter email" required autofocus>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" id="password" th:field="${registrationDTO.password}" class="form-control rounded-lg" placeholder="Please enter password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" id="reenter-password" class="form-control rounded-lg" placeholder="Please re-enter password" required>
+                        </div>
+
+                        <div class="alert alert-danger" id="validation-error" hidden>
+                            You two passwords entered do not match.
+                        </div>
+
+                        <br>
+                        <button class="btn btn-primary btn-block text-uppercase" type="submit" onclick="return validateRegistration()">Register</button>
+                        <hr class="mt-4">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+    <footer th:replace="footer">
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::title})">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+</head>
+<body style="padding-right: 0 !important ">
+    <div class="main-wrapper">
+        <!-- Section 1 Start backgroupImage -->
+        <section class="page-title admin-bg-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block text-center">
+                            <span class="text-white">Administrator</span>
+                            <h1 class="text-capitalize mt-4 mb-6 text-lg">Manage Offer Resources</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- section 2 Start list of offer history -->
+        <section class="section-flow">
+            <div class="offer-contents" style="padding-top: 10px">
+                <div class = "row">
+                    <div class = "col-0 col-md-2 left-timeLine" >
+                        <div th:each="offer, iter : ${offers}">
+                            <div th:if="${iter.index % 5} eq '0'" class = "time-line-title">
+                                <h4 th:text="${offer.getOfferDate()}"/>
+                                <div class = "time-point">
+                                </div>
+                            </div>
+                            <div th:if="${iter.index % 5 } ne '0'" style="height: 40px">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class ="col-12 col-md-9 desktop-padding">
+                        <!-- title -->
+                        <div class="row" style="margin-top: 12px;margin-bottom: 2px">
+                            <div class = "col-4 col-md-4 auto-text-align">
+                                <span>Name</span>
+                            </div>
+                            <div class = "col-4 col-md-4 auto-text-align">
+                                <span>Program</span>
+                            </div>
+                            <div class = "col-4 col-md-4 auto-text-align">
+                                <span>Company</span>
+                            </div>
+                        </div>
+
+                        <!-- offer list-->
+                        <div th:each="offer : ${offers}" class="row modifier" style="height: 40px"
+                             th:attr="onclick=|openModifier('${offer.getId()}')|"
+                        >
+                            <div class = "col-4 col-md-4 auto-text-align" th:id="'offerUserName' + ${offer.getId()}">
+                                <h4 th:text="${offer.getName()}"></h4>
+                            </div>
+                            <div class = "col-4 col-md-4 auto-text-align" th:id="'offerProgramName' + ${offer.getId()}">
+                                <h4 th:text="${offer.getProgram().getName()}"></h4>
+                            </div>
+                            <div class = "col-4 col-md-4 auto-text-align" th:id="'offerClientName' + ${offer.getId()}">
+                                <h4 th:text="${offer.getClient()}"></h4>
+                            </div>
+                            <div th:id="'offerRestInfo'+${offer.getId()}" style="display: none">
+                                <span class="programDes" th:text="${offer.getProgram().getDescription()}"></span>
+                                <span class="userExp" th:text="${offer.getExperience()}"></span>
+                                <span class="candidateId" th:text="${offer.getCandidateId()}"></span>
+                                <span class="offerDate" th:text="${offer.getOfferDate()}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Modal -->
+        <div class="modal fade" id="offerModifier" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Offer Modifier</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "boardCover" id="boardStatus">
+                            <div id = "statusContainer" >
+                                <div id = "statusImage">
+                                </div>
+                                <div style="text-align: center;margin-top: 15px" id="statusText">
+                                    <h5>updating please dont't close</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "inputContentContainer">
+                            <div class="form-group row">
+                                <label for="userNameFill" class="col-sm-3 col-form-label">User Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="userNameFill" placeholder="User Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="userExpFill" class="col-sm-3 col-form-label">Experience</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="userExpFill" placeholder="User Experience">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="clientNameFill" class="col-sm-3 col-form-label">Client Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="clientNameFill" placeholder="Client Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="programNameFill" class="col-sm-3 col-form-label">Program Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="programNameFill" placeholder="Program Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="offerDateFill" class="col-sm-3 col-form-label">Offer Date</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control"  type="date" id="offerDateFill"></input>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="programDesFill" class="col-sm-3 col-form-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" aria-label="With textarea" id="programDesFill" placeholder="ProjectDescription"></textarea>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="updateButton" >Update</button>
+                        <button type="button" class="btn btn-danger" id="deleteButton" onClick="deleteOffer()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="footer">
+        </footer>
+    </div>
+</body>
+</html>

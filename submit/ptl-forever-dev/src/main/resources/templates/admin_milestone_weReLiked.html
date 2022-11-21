@@ -1,0 +1,36 @@
+<!doctype html>
+<head th:replace="admin_menubar :: admin_menubar(~{::menubar})">
+</head>
+<body>
+    <div class="right">
+        <span id="show_Current_Time"></span>
+        <br><br>
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>#ID</th>
+                    <th>name</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Create Date</th>
+                    <th>operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pure-table" th:each="testimony:${testimonies}">
+                    <td><span th:text="${testimony.id}"></span></td>
+                    <td><span th:text="${testimony.authorName}"></span></td>
+                    <td><span th:text="${testimony.authorTitle}"></span></td>
+                    <td><span th:text="${testimony.authorClient}"></span></td>
+                    <td><span th:text="${testimony.createDate}"></span></td>
+                    <td>
+                        <button class="list_button" th:value="${testimony.id}" onclick="">edit</button>
+                        <button class="list_button" th:value="${testimony.id}" onclick="">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="input_submit" onclick="objectView('/admin/testimonyview?id=','new')">add new</button>
+    </div>
+</body>
+</html>

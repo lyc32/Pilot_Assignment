@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: header(~{::title})">
+</head>
+
+<body>
+
+<div class="main-wrapper">
+    <section class="page-title admin-bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <span class="text-white">Administrator</span>
+                        <h1 class="text-capitalize mt-4 mb-6 text-lg">Manage Page Resources</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section blog-wrap bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+
+                        <div id="accordion" class="col-sm-12">
+                            <!--card1 - Resource Stats-->
+                            <div class="card" id="resourceStatsCard">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            Resource Stats
+                                        </button>
+                                    </h5>
+                                </div>
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <!--form starts-->
+                                        <form action="#" class="form-horizontal"
+                                              th:action="@{/admin/resourcestats/update}"
+                                              th:object="${resourceStats}"
+                                              th:method="put">
+                                             <div class="table-responsive-sm">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="text-nowrap">Item</th>
+                                                        <th>Current Value</th>
+                                                        <th>New Value</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><span>Projects: </span></td>
+                                                            <td><span th:text="${resourceStats.numberOfProjects}"/></td>
+                                                            <td><input th:field="${resourceStats.numberOfProjects}"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>Employees: </span></td>
+                                                            <td><span th:text="${resourceStats.numberOfEmployees}"/></td>
+                                                            <td><input th:field="${resourceStats.numberOfEmployees}"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>Clients: </span></td>
+                                                            <td><span th:text="${resourceStats.numberOfClients}"/></td>
+                                                            <td><input th:field="${resourceStats.numberOfClients}"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>States: </span></td>
+                                                            <td><span th:text="${resourceStats.numberOfStates}"/></td>
+                                                            <td><input th:field="${resourceStats.numberOfStates}"/></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div>
+                                                    <button type="submit" id="submitButton" class="btn btn-success ml-2 mr-5" th:value="Save">Update</button>
+                                                    <button type="reset" id="resetButton" class="btn btn-danger" th:value="Reset">Reset</button>
+                                                </div>
+                                             </div>
+                                        </form>
+                                        <!--form ends-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--card2 - Testimony-->
+                            <div class="card" id="testimonyCard">
+                                <div class="card-header" id="headingTestimony">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTestimony" aria-expanded="false" aria-controls="collapseTestimony">
+                                            Testimony
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTestimony" class="collapse" aria-labelledby="headingTestimony" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <!--form starts-->
+                                        <div class="ml-5 mr-5">
+                                        <div class="row mt-2 mb-3">
+                                            <div class="container-fluid">
+                                                <a type="submit" class="btn-sm btn-success" th:href="@{/admin/testimony/-1/add}">Add New Testimony</a>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive-sm row">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-nowrap">Author</th>
+                                                        <th>Content</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="testimony: ${testimonies}">
+                                                        <td class="text-nowrap">
+                                                            <span th:text="${testimony.authorName}"></span>
+                                                            <br>
+                                                            <span th:text="${testimony.authorTitle}"></span>
+                                                            <br>
+                                                            <span th:text="${testimony.authorClient}"></span>
+                                                        </td>
+                                                        <td><span th:text="${testimony.text}"></span></td>
+                                                        <td>
+                                                            <a type="submit" class="btn-sm btn-success" th:href="@{/admin/testimony/{id}/update(id=${testimony.id})}">Update</a>
+                                                            <br><br>
+                                                            <a type="submit" class="btn-sm btn-danger" th:href="@{/admin/testimony/{id}/delete(id=${testimony.id})}">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <!--form ends-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--card3 - clients -->
+                            <div class="card" id="clientsCard">
+                                <div class="card-header" id="headingClients">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseClients" aria-expanded="false" aria-controls="collapseClients">
+                                            Clients
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseClients" class="collapse" aria-labelledby="headingClients" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <!--form starts-->
+                                        <div class="ml-5 mr-5">
+                                            <div class="row mt-2 mb-3">
+                                                <div class="container-fluid">
+                                                    <a type="submit" class="btn-sm btn-success" th:href="@{/admin/client/-1/add}">Add New Client</a>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive-sm row">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="text-nowrap">Industry</th>
+                                                        <th>Client Name</th>
+                                                        <th>Client States</th>
+                                                        <th>isTopClients</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr th:each="client: ${clients.clientList}">
+                                                        <td class="">
+                                                            <span th:text="${client.industry}"></span>
+                                                        </td>
+                                                        <td class="">
+                                                            <span th:text="${client.name}"></span>
+                                                        </td>
+                                                        <td class="">
+                                                            <span th:text="${client.getStatesAsString()}"></span>
+                                                        </td>
+                                                        <td class="">
+                                                            <span th:text="${client.isTopClient()}"></span>
+                                                        </td>
+                                                        <td>
+                                                            <a type="submit" class="btn-sm btn-success" th:href="@{/admin/client/{name}/update(name=${client.name})}">Update</a>
+                                                            <a type="submit" class="btn-sm btn-danger" th:href="@{/admin/client/{name}/delete(name=${client.name})}">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--form ends-->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--card4 - jobs -->
+                            <div class="card" id="jobsCard">
+                                <div class="card-header" id="headingJobs">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseJobs" aria-expanded="false" aria-controls="collapseJobs">
+                                            Jobs List
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseJobs" class="collapse show" aria-labelledby="headingJobs" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <!--form starts-->
+                                        <div class="ml-5 mr-5">
+                                            <div class="row mt-2 mb-3">
+                                                <div class="container-fluid">
+                                                    <a type="submit" class="btn-sm btn-success" th:href="@{/admin/job/-1/add}">Add New Job</a>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive-sm row">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-nowrap">MetaData</th>
+                                                            <th>Description</th>
+                                                            <th>Requirements</th>
+                                                            <th>Qualification</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr th:each="job: ${jobs.sortedJobList}">
+                                                            <td class="text-nowrap">
+                                                                <strong>Id: </strong><span th:text="${job.id}"></span>
+                                                                <br>
+                                                                <strong>Title: </strong><span th:text="${job.title}"></span>
+                                                                <br>
+                                                                <strong>Location: </strong><span th:text="${job.location}"></span>
+                                                                <br>
+                                                                <strong>Field: </strong><span th:text="${job.field}"></span>
+                                                                <br>
+                                                                <strong>Start Date: </strong><span th:text="${job.postStartDate}"></span>
+                                                                <br>
+                                                                <strong>End Date: </strong><span th:text="${job.postEndDate}"></span>
+                                                            </td>
+                                                            <td><span th:text="${job.description}"></span></td>
+                                                            <td>
+                                                                <span th:text="${job.requirements.get(0)}"></span>
+                                                                <br>
+                                                                <span class="text-danger">......</span>
+                                                            </td>
+                                                            <td><span th:text="${job.qualifications}"></span></td>
+                                                            <td>
+                                                                <a type="submit" class="btn-sm btn-success" th:href="@{/admin/job/{id}/view(id=${job.id})}">View Details</a>
+                                                                <br><br>
+                                                                <a type="submit" class="btn-sm btn-success" th:href="@{/admin/job/{id}/update(id=${job.id})}">Update</a>
+                                                                <br><br>
+                                                                <a type="submit" class="btn-sm btn-danger" th:href="@{/admin/job/{id}/delete(id=${job.id})}">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--form ends-->
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <!--************************************-->
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer th:replace="footer">
+    </footer>
+
+</div>
+
+</body>
+</html>

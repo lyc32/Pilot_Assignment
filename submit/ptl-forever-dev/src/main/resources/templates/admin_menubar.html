@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="admin_menubar(menubar)">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" >
+	<link rel="stylesheet" href="/css/admin_mainpage_style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="/css/admin_menubar_style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="/css/admin_list_style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="/css/admin_form_style.css" media="screen" type="text/css" />
+	<script src="/js/jquery-3.6.1.min.js"></script>
+	<script src="/js/admin_career_operation.js"></script>
+	<script src="/js/admin_CRUD_operation.js"></script>
+</head>
+
+<body onload="show_Current_Time()">
+	<div class="left">
+		<div style="text-align: center;">
+			<a href="/admin/mainpage">
+				<img src="../images/logo.png" height="100">
+			</a>
+		</div>
+		<div class="container">
+			<ul>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">&nbsp;&nbsp;Home page<i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;edit home page</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">&nbsp;&nbsp;Service<i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;program</a></li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Service</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">&nbsp;&nbsp;Milestone<i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Resources</a></li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Offer Board</a></li>
+						<li><a href="/admin/we_re_liked">&nbsp;&nbsp;&nbsp;&nbsp;We're Liked!</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">&nbsp;&nbsp;Career<i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="/admin/jobview?jobId=new">&nbsp;&nbsp;&nbsp;&nbsp;Post new job</a></li>
+						<li><a href="/admin/career">&nbsp;&nbsp;&nbsp;&nbsp;job list</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">&nbsp;&nbsp;ePortal<i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;admin</a></li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Employee</a></li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Tech Screening</a></li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;MOCK</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">&nbsp;&nbsp;contact<i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;EDIT contact</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<script src="/js/admin_menubar_animation.js"></script>
+	</div>
+</body>
+</html>

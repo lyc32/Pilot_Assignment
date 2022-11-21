@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: header(~{::title})">
+</head>
+
+<body>
+<div class="card" id="resourceStatsCard">
+    <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+                Company Profile
+        </h5>
+    </div>
+
+<!--    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">-->
+<!--        <div class="card-body">-->
+            <!--form starts-->
+            <form action="#" class="form-horizontal"
+                  th:action="@{/admin/companyprofile/update}"
+                  th:object="${companyProfile}"
+                  th:method="put">
+                <div class="table-responsive-sm">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-nowrap">Item</th>
+                            <th>Current Value</th>
+                            <th>New Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><span>Name: </span></td>
+                            <td><span th:text="${companyProfile.name}"/></td>
+                            <td><input th:field="${companyProfile.name}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Short Name: </span></td>
+                            <td><span th:text="${companyProfile.shortName}"/></td>
+                            <td><input th:field="${companyProfile.shortName}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Email: </span></td>
+                            <td><span th:text="${companyProfile.email}"/></td>
+                            <td><input th:field="${companyProfile.email}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Phone: </span></td>
+                            <td><span th:text="${companyProfile.phone}"/></td>
+                            <td><input th:field="${companyProfile.phone}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Address Street: </span></td>
+                            <td><span th:text="${companyProfile.addressStreet}"/></td>
+                            <td><input th:field="${companyProfile.addressStreet}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Address City: </span></td>
+                            <td><span th:text="${companyProfile.addressCity}"/></td>
+                            <td><input th:field="${companyProfile.addressCity}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Address State: </span></td>
+                            <td><span th:text="${companyProfile.addressState}"/></td>
+                            <td><input th:field="${companyProfile.addressState}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Address Zip: </span></td>
+                            <td><span th:text="${companyProfile.addressZip}"/></td>
+                            <td><input th:field="${companyProfile.addressZip}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Address x Location: </span></td>
+                            <td><span th:text="${companyProfile.xlocation}"/></td>
+                            <td><input th:field="${companyProfile.xlocation}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Address y Location: </span></td>
+                            <td><span th:text="${companyProfile.ylocation}"/></td>
+                            <td><input th:field="${companyProfile.ylocation}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Location Branch Name: </span></td>
+                            <td><span th:text="${companyProfile.locationBranchName}"/></td>
+                            <td><input th:field="${companyProfile.locationBranchName}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>LinkedIn: </span></td>
+                            <td><span th:text="${companyProfile.linkedin}"/></td>
+                            <td><input th:field="${companyProfile.linkedin}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Wechat: </span></td>
+                            <td><span th:text="${companyProfile.wechat}"/></td>
+                            <td><input th:field="${companyProfile.wechat}"/></td>
+                        </tr>
+                        <tr>
+                            <td><span>Google Plus: </span></td>
+                            <td><span th:text="${companyProfile.googleplus}"/></td>
+                            <td><input th:field="${companyProfile.googleplus}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <button type="submit" id="submitButton" class="btn btn-success ml-2 mr-5" th:value="Save">Update</button>
+                        <button type="reset" id="resetButton" class="btn btn-danger" th:value="Reset">Reset</button>
+                    </div>
+                </div>
+            </form>
+            <!--form ends-->
+        </div>
+<!--    </div>-->
+<!--</div>-->
+
+</body>
+</html>

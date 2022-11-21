@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::title})">
+</head>
+<body>
+    <div class="main-wrapper ">
+        <!-- Section 1 Start backgroupImage -->
+        <section class="page-title offerboard-bg-1" style="z-index: -1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block text-center">
+                            <h1 class="text-capitalize mb-4 text-lg" th:text="${#messages.msg('pilot.offerboard.sec1.title')}"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 2 Start list of offer history -->
+        <section class="section-flow">
+            <!-- section header render history details title-->
+            <div class="offerListHeader">
+                <div class="row">
+                    <div class="col-md-6 offer-title text-center" align="center" style="dispaly:hidden">
+                        <div><h2>Seize Opportunities</h2></div>
+                    </div>
+                    <div class="col-md-6 offer-title text-center mobileHidden" align="center">
+                        <div><h2>Get Offers</h2></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- section list, list of offers history content -->
+            <div class="offer-contents">
+                <div class = "row">
+                    <div class = "col-0 col-md-2 left-timeLine">
+                        <div th:each="offer, iter : ${offers}">
+                            <!--<div th:if="${iter.index % 5} eq '0'" class = "time-line-title">
+                                <h4 th:text="${offer.getOfferDate()}"/>
+                                <div class = "time-point">
+                                </div>
+                            </div>-->
+                            <div th:if="${iter.index % 5 } ne '0'" style="height: 40px">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class ="col-12 col-md-9 desktop-padding">
+                        <!-- title -->
+                        <div class="row" style="margin-top: 12px;margin-bottom: 2px">
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <span>Name</span>
+                            </div>
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <span>Program</span>
+                            </div>
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <span>Company</span>
+                            </div>
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <span>Location</span>
+                            </div>
+                        </div>
+
+                        <!-- offer list-->
+                        <div th:each="offer : ${offers}" class="row" style="height: 40px">
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <h4 th:text="${offer.getName()}"></h4>
+                            </div>
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <h4 th:text="${offer.getProgram()}"></h4>
+                            </div>
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <h4 th:text="${offer.getClient()}"></h4>
+                            </div>
+                            <div class = "col-3 col-md-3 auto-text-align">
+                                <h4 th:text="${offer.getState()}"></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <footer th:replace="footer">
+        </footer>
+    </div>
+</body>
+</html>

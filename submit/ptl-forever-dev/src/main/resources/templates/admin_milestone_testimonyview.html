@@ -1,0 +1,21 @@
+<!doctype html>
+<head th:replace="admin_menubar :: admin_menubar(~{::menubar})">
+</head>
+<body>
+    <div class="right">
+        <span id="show_Current_Time"></span>
+        <br><br>
+        <div class="view_form">
+          <h1 th:if="${type == 'new'}"><span>Post New Testimony</span></h1>
+          <h1 th:unless="${type == 'new'}"><span th:text="${testimony.id}"></span></h1>
+          <input type="hidden">
+          Name:      <input style="width: 70%" class="input_text" type="text" required/>
+          Job Title: <input style="width: 70%" class="input_text" type="text" required/>
+          Company:   <input style="width: 70%" class="input_text" type="text" required/>
+          Message:   <textarea class="formtextarea" style="width:85%;height:100px;"></textarea>
+          <input th:if="${type == 'new'}" class="input_submit" type="submit" id="create_Job" onclick="" value="submit"/>
+          <input th:unless="${type == 'new'}" class="input_submit" type="submit" id="update_Job" onclick="" value="submit"/>
+        </div>
+    </div>
+</body>
+</html>
